@@ -1,9 +1,336 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
   <head>
+    <!-- СЮДИ КОД GTM ДЛЯ HEAD -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Go Space</title>
+    <meta
+      name="description"
+      content="GoSpace — майбутній простір у Ризі для роботи, навчання, зустрічей та відпочинку. GoWorking і GoRelaxing під одним дахом."
+    />
+    <meta name="theme-color" content="#172727" />
+    <title>GoSpace — простір для роботи та відпочинку в Ризі</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <!-- СЮДИ КОД GTM ДЛЯ BODY -->
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="#home" aria-label="GoSpace — головна">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span>Go<span class="logo__accent">Space</span></span>
+        </a>
+        <nav class="nav" aria-label="Головна навігація">
+          <a href="#spaces">Простори</a>
+          <a href="#pricing">Тарифи</a>
+          <a href="#hours">Графік</a>
+          <a href="#contacts">Контакти</a>
+        </nav>
+        <span class="header__location">Рига, Латвія</span>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero__intro">
+            <div class="hero__heading">
+              <p class="eyebrow"><span class="status-dot"></span> Концепція нового простору в Ризі</p>
+              <h1 id="hero-title">GoSpace<span class="hero__period">.</span></h1>
+              <p class="hero__tagline">Твій день. Твій ритм.</p>
+            </div>
+            <div class="hero__content">
+              <p class="hero__description">
+                Працюй, навчайся, зустрічайся з друзями та відпочивай.
+                Дві незалежні зони — одна спільнота під одним дахом.
+              </p>
+              <button class="button button--primary" id="lead-button" type="button">Залишити заявку</button>
+              <p class="hero__note">Навчальний проєкт · відкриття планується</p>
+            </div>
+          </div>
+
+          <div class="spaces" id="spaces">
+            <article class="space-card space-card--working">
+              <div class="space-card__heading">
+                <span class="space-card__index">01 / QUIET ZONE</span>
+                <span class="space-card__tag">Фокус</span>
+              </div>
+              <svg
+                class="space-card__art"
+                viewBox="0 0 540 248"
+                role="img"
+                aria-label="Ілюстрація тихої робочої зони з індивідуальними столами та великими вікнами"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="540" height="248" rx="12" fill="#DCE7DF" />
+                <path d="M0 182H540V248H0Z" fill="#B8CBBE" />
+                <path
+                  d="M0 182H540M90 248l97-66m175 0 89 66M270 182v66"
+                  fill="none"
+                  stroke="#A0B7A8"
+                  stroke-width="2"
+                />
+                <rect
+                  x="32"
+                  y="25"
+                  width="298"
+                  height="126"
+                  rx="3"
+                  fill="#F0F3E7"
+                  stroke="#839E8F"
+                  stroke-width="3"
+                />
+                <path
+                  d="M131 25v126M231 25v126M32 91h298"
+                  fill="none"
+                  stroke="#839E8F"
+                  stroke-width="3"
+                />
+                <circle cx="280" cy="56" r="20" fill="#F9DCA0" />
+                <path d="M35 135 83 105l40 26 46-40 62 45 40-25 56 28v10H35Z" fill="#C1D2C3" />
+                <rect x="356" y="26" width="145" height="8" rx="4" fill="#5D7F72" />
+                <rect x="387" y="34" width="7" height="45" fill="#5D7F72" />
+                <path d="M369 80h43l-9-15h-25Z" fill="#F3DA9B" />
+                <rect x="459" y="34" width="7" height="45" fill="#5D7F72" />
+                <path d="M440 80h43l-9-15h-25Z" fill="#F3DA9B" />
+                <rect x="54" y="177" width="431" height="12" rx="3" fill="#856F53" />
+                <path
+                  d="M67 189v42m405-42v42M208 189v42m124-42v42"
+                  stroke="#52685E"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+                <path d="M200 111h12v66h-12zM326 111h12v66h-12z" fill="#90AFA1" />
+                <rect x="91" y="133" width="73" height="41" rx="4" fill="#385A51" />
+                <rect x="97" y="139" width="61" height="29" rx="2" fill="#EAF1E8" />
+                <path d="M86 175h83v4H86Z" fill="#263E37" />
+                <rect x="232" y="133" width="73" height="41" rx="4" fill="#385A51" />
+                <rect x="238" y="139" width="61" height="29" rx="2" fill="#EAF1E8" />
+                <path d="M227 175h83v4h-83Z" fill="#263E37" />
+                <rect x="373" y="133" width="73" height="41" rx="4" fill="#385A51" />
+                <rect x="379" y="139" width="61" height="29" rx="2" fill="#EAF1E8" />
+                <path d="M368 175h83v4h-83Z" fill="#263E37" />
+                <g fill="#5F796D" stroke="#466157" stroke-width="2">
+                  <rect x="104" y="192" width="46" height="30" rx="8" />
+                  <rect x="246" y="192" width="46" height="30" rx="8" />
+                  <rect x="387" y="192" width="46" height="30" rx="8" />
+                </g>
+                <path d="M127 222v13m142-13v13m141-13v13" stroke="#466157" stroke-width="5" />
+                <path d="M509 166h-24l4 28h16Z" fill="#B97E59" />
+                <path
+                  d="M497 167c-2-28 16-40 23-43-1 17-8 27-19 36m-4 7c-4-19-17-23-23-22 2 12 10 19 23 22"
+                  fill="#6E927D"
+                />
+              </svg>
+              <h2 class="space-card__title">GoWorking</h2>
+              <p class="space-card__description">Для роботи, навчання та концентрації. Індивідуальні місця з перегородками, тиша і Wi-Fi. Без алкоголю.</p>
+              <div class="space-card__footer">
+                <span>Робоче місце</span>
+                <strong>4 € <small>/ год</small></strong>
+              </div>
+            </article>
+
+            <article class="space-card space-card--relaxing">
+              <div class="space-card__heading">
+                <span class="space-card__index">02 / COMMUNITY ZONE</span>
+                <span class="space-card__tag">Спільнота</span>
+              </div>
+              <svg
+                class="space-card__art"
+                viewBox="0 0 540 248"
+                role="img"
+                aria-label="Ілюстрація соціальної зони з теплим освітленням, столами та іграми"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="540" height="248" rx="12" fill="#513C30" />
+                <rect x="0" y="181" width="540" height="67" fill="#78523C" />
+                <path
+                  d="M0 181h540M62 248l105-67m204 0 104 67M270 181v67"
+                  stroke="#986D4E"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <rect x="28" y="24" width="484" height="101" rx="3" fill="#3B312C" />
+                <path
+                  d="M28 77h484M147 24v101m123-101v101m123-101v101"
+                  stroke="#785D48"
+                  stroke-width="3"
+                />
+                <g fill="#CCAD78">
+                  <circle cx="73" cy="48" r="2" /><circle cx="112" cy="99" r="3" />
+                  <circle cx="185" cy="55" r="3" /><circle cx="225" cy="95" r="2" />
+                  <circle cx="312" cy="50" r="2" /><circle cx="354" cy="102" r="3" />
+                  <circle cx="435" cy="51" r="3" /><circle cx="470" cy="93" r="2" />
+                </g>
+                <path d="M91 0v48m179-48v48M449 0v48" stroke="#BD9672" stroke-width="3" />
+                <g fill="#F3C66E">
+                  <path d="M67 73h48l-11-25H78Z" /><path d="M246 73h48l-11-25h-26Z" /><path d="M425 73h48l-11-25h-26Z" />
+                </g>
+                <rect x="28" y="135" width="484" height="44" rx="9" fill="#A2674B" />
+                <path d="M28 155h484m121-20v44m120-44v44m122-44v44" stroke="#C08A67" stroke-width="2" />
+                <rect x="73" y="175" width="180" height="12" rx="4" fill="#D5A46F" />
+                <rect x="287" y="175" width="180" height="12" rx="4" fill="#D5A46F" />
+                <path
+                  d="M91 187v43m144-43v43m70-43v43m144-43v43"
+                  stroke="#3A312D"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+                <rect x="134" y="151" width="49" height="25" rx="2" fill="#DCCCA2" />
+                <path d="M150 151v25m16-25v25m-32-13h49" stroke="#8C9B79" stroke-width="2" />
+                <circle cx="143" cy="157" r="3" fill="#B3553C" /><circle cx="173" cy="169" r="3" fill="#566F5A" />
+                <g fill="#EBDAAE">
+                  <ellipse cx="205" cy="171" rx="11" ry="3" /><rect x="198" y="155" width="14" height="15" rx="3" />
+                  <ellipse cx="336" cy="171" rx="12" ry="3" /><rect x="329" y="155" width="14" height="15" rx="3" />
+                  <ellipse cx="415" cy="171" rx="17" ry="4" />
+                </g>
+                <path d="M403 165q12-16 23 0" fill="#D99D54" />
+                <g fill="#BC7856" stroke="#734C3A" stroke-width="2">
+                  <rect x="92" y="195" width="49" height="30" rx="8" /><rect x="184" y="195" width="49" height="30" rx="8" />
+                  <rect x="306" y="195" width="49" height="30" rx="8" /><rect x="398" y="195" width="49" height="30" rx="8" />
+                </g>
+                <path d="M116 225v12m92-12v12m122-12v12m92-12v12" stroke="#43362D" stroke-width="5" />
+              </svg>
+              <h2 class="space-card__title">GoRelaxing</h2>
+              <p class="space-card__description">Для обідів, зустрічей і настільних ігор. Увечері — спілкування та події, без шуму в робочій зоні.</p>
+              <div class="space-card__footer">
+                <span>Стіл на 4 гостей</span>
+                <strong>25 € <small>/ 2 год</small></strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section benefits" aria-labelledby="benefits-title">
+        <div class="container">
+          <div class="section__heading">
+            <p class="eyebrow">01 — Переваги</p>
+            <h2 id="benefits-title">Більше, ніж коворкінг.</h2>
+          </div>
+          <div class="benefits__grid">
+            <article class="benefit">
+              <span class="benefit__symbol" aria-hidden="true">◎</span>
+              <h3>Тиша без компромісів</h3>
+              <p>Дві ізольовані зони: працюй або навчайся, поки інші відпочивають.</p>
+            </article>
+            <article class="benefit">
+              <span class="benefit__symbol" aria-hidden="true">＋</span>
+              <h3>Бронювання з користю</h3>
+              <p>Частину вартості столу можна витратити на їжу та безалкогольні напої.</p>
+            </article>
+            <article class="benefit">
+              <span class="benefit__symbol" aria-hidden="true">↗</span>
+              <h3>Люди та нові ідеї</h3>
+              <p>Зустрічай колег, навчайся разом, знайомся з IT-спільнотою та відпочивай.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="section__heading section__heading--wide">
+            <div>
+              <p class="eyebrow">02 — Тарифи</p>
+              <h2 id="pricing-title">Обирай свій формат.</h2>
+            </div>
+            <p>Прозорі планові ціни. У GoRelaxing ти бронюєш стіл, а не місце за столом.</p>
+          </div>
+          <div class="pricing__grid">
+            <article class="price-card">
+              <p class="price-card__label">GoWorking / індивідуально</p>
+              <h3>Робоче місце</h3>
+              <p class="price-card__amount">4 €<small> / год</small></p>
+              <p>Тиха зона, Wi-Fi, робоче місце з перегородкою.</p>
+            </article>
+            <article class="price-card price-card--featured">
+              <p class="price-card__label">GoRelaxing / вдень</p>
+              <h3>Стіл на 2 години</h3>
+              <p class="price-card__amount">25 €<small> / 2 год</small></p>
+              <p class="price-card__credit">20 € з цієї суми — на меню</p>
+              <p>До 4 гостей. Або 15 € за 1 годину, усі 15 € — на меню.</p>
+            </article>
+            <article class="price-card">
+              <p class="price-card__label">GoRelaxing / увечері</p>
+              <h3>Вечірній стіл</h3>
+              <p class="price-card__amount">40 €<small> / 2 год</small></p>
+              <p class="price-card__credit">40 € з цієї суми — на меню</p>
+              <p>До 4 гостей. Два столи для 8 гостей — 80 € за 2 години.</p>
+            </article>
+          </div>
+          <p class="pricing__note">Додаткова година понад 2 години — 20 € без кредиту на меню. Алкоголь продається лише у GoRelaxing, оплачується окремо. Тарифи попередні.</p>
+        </div>
+      </section>
+
+      <section class="section hours" id="hours" aria-labelledby="hours-title">
+        <div class="container hours__grid">
+          <div class="section__heading">
+            <p class="eyebrow">03 — Графік</p>
+            <h2 id="hours-title">Від ранку до вечора.</h2>
+            <p>GoWorking залишається тихим увесь день. GoRelaxing ввечері переходить у соціальний формат.</p>
+          </div>
+          <div class="hours__table-wrap">
+            <table class="hours__table">
+              <thead>
+                <tr>
+                  <th scope="col">Дні</th>
+                  <th scope="col">Години роботи</th>
+                  <th scope="col">Вечір з</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Пн–Чт</th>
+                  <td>09:00–23:00</td>
+                  <td>19:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Пт–Сб</th>
+                  <td>09:00–00:00</td>
+                  <td>18:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Неділя</th>
+                  <td>10:00–20:00</td>
+                  <td>16:00</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="hours__note">Запланований графік, який може змінитися перед відкриттям.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+      <div class="container footer__inner">
+        <div>
+          <a class="logo logo--footer" href="#home" aria-label="GoSpace — на початок сторінки">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span>Go<span class="logo__accent">Space</span></span>
+          </a>
+          <p>Work. Study. Relax. Connect.</p>
+        </div>
+        <div class="footer__contact">
+          <h2>Контакти</h2>
+          <p>Рига, Латвія</p>
+          <p>Адреса та контакти — після підтвердження відкриття.</p>
+        </div>
+        <div class="footer__legal">
+          <p>© GoSpace 2026</p>
+          <p>Навчальна концепція GoIT. Заклад ще не відкрито.</p>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title">
+      <h2 id="lead-dialog-title">Дякуємо за інтерес до GoSpace!</h2>
+      <p>Це демонстраційний лендінг майбутнього простору. Реальне бронювання та прийом заявок ще не доступні. Ваші контактні дані не збираються.</p>
+      <form method="dialog">
+        <button class="button button--secondary" type="submit">Закрити</button>
+      </form>
+    </dialog>
+  </body>
 </html>

@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <!-- СЮДИ КОД GTM ДЛЯ HEAD -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GoSpace — майбутній простір у Ризі для роботи, навчання, зустрічей та відпочинку. GoWorking і GoRelaxing під одним дахом."
+    />
+    <meta name="theme-color" content="#172727" />
+    <title>GoSpace — простір для роботи та відпочинку в Ризі</title>
+    <style>
+      /* Design tokens */
+      :root {
+        --color-ink: #172727;
+        --color-muted: #596761;
+        --color-paper: #f7f7f2;
+        --color-white: #fff;
+        --color-line: #d9dfd8;
+        --color-working: #e0ebe3;
+        --color-working-ink: #23463b;
+        --color-relaxing: #362921;
+        --color-relaxing-ink: #f6e7d2;
+        --color-accent: #d8e9aa;
+        --color-accent-hover: #c7dc8d;
+        --radius: 24px;
+        --container: 1200px;
+        --gutter: clamp(20px, 4vw, 56px);
+        --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      /* Base and shared layout */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible {
+        outline: 3px solid #6e946e;
+        outline-offset: 5px;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .container {
+        width: min(100% - var(--gutter) * 2, var(--container));
+        margin-inline: auto;
+      }
+
+      .section {
+        padding-block: clamp(56px, 8vw, 100px);
+      }
+
+      .section__heading {
+        margin-bottom: 32px;
+      }
+
+      .section__heading h2 {
+        max-width: 17ch;
+        font-size: clamp(2.05rem, 4.5vw, 3.6rem);
+        font-weight: 730;
+      }
+
+      .section__heading > p:not(.eyebrow),
+      .section__heading--wide > p {
+        max-width: 45ch;
+        margin-top: 16px;
+        color: var(--color-muted);
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        color: var(--color-muted);
+        font-size: 0.75rem;
+        font-weight: 650;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Navigation */
+      .header {
+        border-bottom: 1px solid #ffffff1a;
+        background: var(--color-ink);
+        color: var(--color-white);
+      }
+
+      .header__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px 24px;
+        padding-block: 20px;
+      }
+
+      .logo {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 9px;
+        font-size: 1.4rem;
+        font-weight: 780;
+        line-height: 1;
+        letter-spacing: -0.065em;
+      }
+
+      .logo__mark {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        border: 2px solid var(--color-accent);
+        border-radius: 8px 8px 8px 2px;
+        transform: rotate(-12deg);
+      }
+
+      .logo__accent {
+        color: var(--color-accent);
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+        font-size: 0.85rem;
+        color: #e1e7e1;
+      }
+
+      .nav a:hover {
+        color: var(--color-accent);
+      }
+
+      .header__location {
+        display: none;
+        color: #b7c6bc;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      /* Hero and two space cards */
+      .hero {
+        padding-block: clamp(44px, 7vw, 86px) clamp(36px, 6vw, 68px);
+        background: var(--color-ink);
+        color: var(--color-white);
+      }
+
+      .hero__intro {
+        display: grid;
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 36px;
+      }
+
+      .hero .eyebrow {
+        color: #aebfb6;
+        letter-spacing: 0.095em;
+      }
+
+      .status-dot {
+        flex: 0 0 auto;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--color-accent);
+        box-shadow: 0 0 0 4px #d8e9aa20;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.9rem, 11.5vw, 9rem);
+        font-weight: 780;
+        line-height: 0.98;
+        letter-spacing: -0.085em;
+      }
+
+      .hero__period {
+        color: var(--color-accent);
+      }
+
+      .hero__tagline {
+        margin-top: 15px;
+        color: #e7ece4;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        letter-spacing: -0.04em;
+      }
+
+      .hero__description {
+        max-width: 45ch;
+        margin-bottom: 22px;
+        color: #d5dfd6;
+        font-size: clamp(1rem, 1.6vw, 1.16rem);
+      }
+
+      .hero__note {
+        margin-top: 12px;
+        color: #b0beb5;
+        font-size: 0.75rem;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 26px;
+        border: 0;
+        border-radius: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 180ms ease, transform 180ms ease;
+      }
+
+      .button--primary {
+        min-width: min(100%, 230px);
+        background: var(--color-accent);
+        color: var(--color-ink);
+      }
+
+      .button--primary:hover {
+        background: var(--color-accent-hover);
+        transform: translateY(-2px);
+      }
+
+      .button--secondary {
+        background: var(--color-ink);
+        color: var(--color-white);
+      }
+
+      .button--secondary:hover {
+        background: #304841;
+      }
+
+      .spaces {
+        display: grid;
+        gap: 16px;
+        scroll-margin-top: 16px;
+      }
+
+      .space-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        padding: clamp(18px, 3vw, 28px);
+        border-radius: var(--radius);
+      }
+
+      .space-card--working {
+        background: var(--color-working);
+        color: var(--color-working-ink);
+      }
+
+      .space-card--relaxing {
+        background: var(--color-relaxing);
+        color: var(--color-relaxing-ink);
+        border: 1px solid #6a5140;
+      }
+
+      .space-card__heading,
+      .space-card__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .space-card__heading {
+        margin-bottom: 18px;
+      }
+
+      .space-card__index,
+      .space-card__tag {
+        font-size: 0.69rem;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+      }
+
+      .space-card__tag {
+        padding: 3px 10px;
+        border: 1px solid currentColor;
+        border-radius: 30px;
+        letter-spacing: 0;
+      }
+
+      .space-card__art {
+        margin-bottom: 24px;
+        border-radius: 12px;
+      }
+
+      .space-card__title {
+        margin-bottom: 10px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 740;
+      }
+
+      .space-card__description {
+        max-width: 50ch;
+        margin-bottom: 22px;
+        font-size: 0.92rem;
+      }
+
+      .space-card__footer {
+        margin-top: auto;
+        padding-top: 15px;
+        border-top: 1px solid #81948a66;
+        font-size: 0.8rem;
+      }
+
+      .space-card__footer strong {
+        font-size: 1.35rem;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+      }
+
+      .space-card__footer small {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Benefits */
+      .benefits__grid,
+      .pricing__grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .benefit {
+        padding: 24px;
+        border-top: 1px solid var(--color-line);
+      }
+
+      .benefit__symbol {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        background: var(--color-working);
+        color: var(--color-working-ink);
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .benefit h3,
+      .price-card h3 {
+        margin-bottom: 12px;
+        font-size: 1.25rem;
+        font-weight: 720;
+      }
+
+      .benefit p,
+      .price-card > p:not(.price-card__amount):not(.price-card__label) {
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .benefit p {
+        color: var(--color-muted);
+      }
+
+      /* Pricing */
+      .pricing {
+        background: #e9ede7;
+      }
+
+      .price-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 26px;
+        border: 1px solid #d5ddd4;
+        border-radius: var(--radius);
+        background: var(--color-paper);
+      }
+
+      .price-card--featured {
+        border-color: var(--color-ink);
+        background: var(--color-ink);
+        color: var(--color-white);
+      }
+
+      .price-card__label {
+        margin-bottom: 8px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-muted);
+      }
+
+      .price-card--featured .price-card__label {
+        color: #c3d4c7;
+      }
+
+      .price-card__amount {
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-weight: 740;
+        line-height: 1.12;
+        letter-spacing: -0.06em;
+      }
+
+      .price-card__amount small {
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      .price-card__credit {
+        font-weight: 650;
+        color: var(--color-working-ink);
+      }
+
+      .price-card--featured .price-card__credit {
+        color: var(--color-accent);
+      }
+
+      .pricing__note,
+      .hours__note {
+        margin-top: 22px;
+        color: var(--color-muted);
+        font-size: 0.82rem;
+      }
+
+      /* Opening hours */
+      .hours__grid {
+        display: grid;
+        gap: 12px 56px;
+        align-items: start;
+      }
+
+      .hours__table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .hours__table th,
+      .hours__table td {
+        padding: 15px 6px;
+        border-bottom: 1px solid var(--color-line);
+        font-size: clamp(0.76rem, 2vw, 0.96rem);
+      }
+
+      .hours__table thead th {
+        padding-top: 0;
+        color: var(--color-muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .hours__table tbody th {
+        font-weight: 650;
+      }
+
+      .hours__table td {
+        white-space: nowrap;
+      }
+
+      /* Footer and demo lead dialog */
+      .footer {
+        background: var(--color-ink);
+        color: var(--color-white);
+        padding-block: 42px;
+      }
+
+      .footer__inner {
+        display: grid;
+        gap: 24px;
+      }
+
+      .footer .logo {
+        margin-bottom: 12px;
+      }
+
+      .footer h2 {
+        margin-bottom: 8px;
+        font-size: 1rem;
+        font-weight: 650;
+        letter-spacing: 0;
+      }
+
+      .footer p {
+        max-width: 34ch;
+        color: #bdcbbf;
+        font-size: 0.85rem;
+      }
+
+      .lead-dialog {
+        width: min(480px, calc(100% - 40px));
+        padding: 32px;
+        border: 0;
+        border-radius: var(--radius);
+        background: var(--color-paper);
+        color: var(--color-ink);
+        box-shadow: 0 20px 80px #0004;
+      }
+
+      .lead-dialog::backdrop {
+        background: #172727bb;
+      }
+
+      .lead-dialog h2 {
+        margin-bottom: 16px;
+        font-size: 1.6rem;
+      }
+
+      .lead-dialog p {
+        margin-bottom: 22px;
+      }
+
+      /* Responsive enhancements */
+      @media (min-width: 720px) {
+        .hero__intro {
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 40px;
+        }
+
+        .spaces {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .benefits__grid,
+        .pricing__grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .section__heading--wide {
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 36px;
+        }
+
+        .section__heading--wide > p {
+          max-width: 34ch;
+          margin-top: 0;
+        }
+
+        .hours__grid {
+          grid-template-columns: 1fr 1.2fr;
+        }
+
+        .footer__inner {
+          grid-template-columns: 1fr 1fr 0.8fr;
+        }
+      }
+
+      @media (min-width: 920px) {
+        .header__location {
+          display: block;
+        }
+
+        .nav {
+          gap: 28px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .button {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- СЮДИ КОД GTM ДЛЯ BODY -->
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="#home" aria-label="GoSpace — головна">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span>Go<span class="logo__accent">Space</span></span>
+        </a>
+        <nav class="nav" aria-label="Головна навігація">
+          <a href="#spaces">Простори</a>
+          <a href="#pricing">Тарифи</a>
+          <a href="#hours">Графік</a>
+          <a href="#contacts">Контакти</a>
+        </nav>
+        <span class="header__location">Рига, Латвія</span>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero__intro">
+            <div class="hero__heading">
+              <p class="eyebrow"><span class="status-dot"></span> Концепція нового простору в Ризі</p>
+              <h1 id="hero-title">GoSpace<span class="hero__period">.</span></h1>
+              <p class="hero__tagline">Твій день. Твій ритм.</p>
+            </div>
+            <div class="hero__content">
+              <p class="hero__description">
+                Працюй, навчайся, зустрічайся з друзями та відпочивай.
+                Дві незалежні зони — одна спільнота під одним дахом.
+              </p>
+              <button class="button button--primary" id="lead-button" type="button">Залишити заявку</button>
+              <p class="hero__note">Навчальний проєкт · відкриття планується</p>
+            </div>
+          </div>
+
+          <div class="spaces" id="spaces">
+            <article class="space-card space-card--working">
+              <div class="space-card__heading">
+                <span class="space-card__index">01 / QUIET ZONE</span>
+                <span class="space-card__tag">Фокус</span>
+              </div>
+              <svg
+                class="space-card__art"
+                viewBox="0 0 540 248"
+                role="img"
+                aria-label="Ілюстрація тихої робочої зони з індивідуальними столами та великими вікнами"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="540" height="248" rx="12" fill="#DCE7DF" />
+                <path d="M0 182H540V248H0Z" fill="#B8CBBE" />
+                <path
+                  d="M0 182H540M90 248l97-66m175 0 89 66M270 182v66"
+                  fill="none"
+                  stroke="#A0B7A8"
+                  stroke-width="2"
+                />
+                <rect
+                  x="32"
+                  y="25"
+                  width="298"
+                  height="126"
+                  rx="3"
+                  fill="#F0F3E7"
+                  stroke="#839E8F"
+                  stroke-width="3"
+                />
+                <path
+                  d="M131 25v126M231 25v126M32 91h298"
+                  fill="none"
+                  stroke="#839E8F"
+                  stroke-width="3"
+                />
+                <circle cx="280" cy="56" r="20" fill="#F9DCA0" />
+                <path d="M35 135 83 105l40 26 46-40 62 45 40-25 56 28v10H35Z" fill="#C1D2C3" />
+                <rect x="356" y="26" width="145" height="8" rx="4" fill="#5D7F72" />
+                <rect x="387" y="34" width="7" height="45" fill="#5D7F72" />
+                <path d="M369 80h43l-9-15h-25Z" fill="#F3DA9B" />
+                <rect x="459" y="34" width="7" height="45" fill="#5D7F72" />
+                <path d="M440 80h43l-9-15h-25Z" fill="#F3DA9B" />
+                <rect x="54" y="177" width="431" height="12" rx="3" fill="#856F53" />
+                <path
+                  d="M67 189v42m405-42v42M208 189v42m124-42v42"
+                  stroke="#52685E"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+                <path d="M200 111h12v66h-12zM326 111h12v66h-12z" fill="#90AFA1" />
+                <rect x="91" y="133" width="73" height="41" rx="4" fill="#385A51" />
+                <rect x="97" y="139" width="61" height="29" rx="2" fill="#EAF1E8" />
+                <path d="M86 175h83v4H86Z" fill="#263E37" />
+                <rect x="232" y="133" width="73" height="41" rx="4" fill="#385A51" />
+                <rect x="238" y="139" width="61" height="29" rx="2" fill="#EAF1E8" />
+                <path d="M227 175h83v4h-83Z" fill="#263E37" />
+                <rect x="373" y="133" width="73" height="41" rx="4" fill="#385A51" />
+                <rect x="379" y="139" width="61" height="29" rx="2" fill="#EAF1E8" />
+                <path d="M368 175h83v4h-83Z" fill="#263E37" />
+                <g fill="#5F796D" stroke="#466157" stroke-width="2">
+                  <rect x="104" y="192" width="46" height="30" rx="8" />
+                  <rect x="246" y="192" width="46" height="30" rx="8" />
+                  <rect x="387" y="192" width="46" height="30" rx="8" />
+                </g>
+                <path d="M127 222v13m142-13v13m141-13v13" stroke="#466157" stroke-width="5" />
+                <path d="M509 166h-24l4 28h16Z" fill="#B97E59" />
+                <path
+                  d="M497 167c-2-28 16-40 23-43-1 17-8 27-19 36m-4 7c-4-19-17-23-23-22 2 12 10 19 23 22"
+                  fill="#6E927D"
+                />
+              </svg>
+              <h2 class="space-card__title">GoWorking</h2>
+              <p class="space-card__description">Для роботи, навчання та концентрації. Індивідуальні місця з перегородками, тиша і Wi-Fi. Без алкоголю.</p>
+              <div class="space-card__footer">
+                <span>Робоче місце</span>
+                <strong>4 € <small>/ год</small></strong>
+              </div>
+            </article>
+
+            <article class="space-card space-card--relaxing">
+              <div class="space-card__heading">
+                <span class="space-card__index">02 / COMMUNITY ZONE</span>
+                <span class="space-card__tag">Спільнота</span>
+              </div>
+              <svg
+                class="space-card__art"
+                viewBox="0 0 540 248"
+                role="img"
+                aria-label="Ілюстрація соціальної зони з теплим освітленням, столами та іграми"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="540" height="248" rx="12" fill="#513C30" />
+                <rect x="0" y="181" width="540" height="67" fill="#78523C" />
+                <path
+                  d="M0 181h540M62 248l105-67m204 0 104 67M270 181v67"
+                  stroke="#986D4E"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <rect x="28" y="24" width="484" height="101" rx="3" fill="#3B312C" />
+                <path
+                  d="M28 77h484M147 24v101m123-101v101m123-101v101"
+                  stroke="#785D48"
+                  stroke-width="3"
+                />
+                <g fill="#CCAD78">
+                  <circle cx="73" cy="48" r="2" /><circle cx="112" cy="99" r="3" />
+                  <circle cx="185" cy="55" r="3" /><circle cx="225" cy="95" r="2" />
+                  <circle cx="312" cy="50" r="2" /><circle cx="354" cy="102" r="3" />
+                  <circle cx="435" cy="51" r="3" /><circle cx="470" cy="93" r="2" />
+                </g>
+                <path d="M91 0v48m179-48v48M449 0v48" stroke="#BD9672" stroke-width="3" />
+                <g fill="#F3C66E">
+                  <path d="M67 73h48l-11-25H78Z" /><path d="M246 73h48l-11-25h-26Z" /><path d="M425 73h48l-11-25h-26Z" />
+                </g>
+                <rect x="28" y="135" width="484" height="44" rx="9" fill="#A2674B" />
+                <path d="M28 155h484m121-20v44m120-44v44m122-44v44" stroke="#C08A67" stroke-width="2" />
+                <rect x="73" y="175" width="180" height="12" rx="4" fill="#D5A46F" />
+                <rect x="287" y="175" width="180" height="12" rx="4" fill="#D5A46F" />
+                <path
+                  d="M91 187v43m144-43v43m70-43v43m144-43v43"
+                  stroke="#3A312D"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+                <rect x="134" y="151" width="49" height="25" rx="2" fill="#DCCCA2" />
+                <path d="M150 151v25m16-25v25m-32-13h49" stroke="#8C9B79" stroke-width="2" />
+                <circle cx="143" cy="157" r="3" fill="#B3553C" /><circle cx="173" cy="169" r="3" fill="#566F5A" />
+                <g fill="#EBDAAE">
+                  <ellipse cx="205" cy="171" rx="11" ry="3" /><rect x="198" y="155" width="14" height="15" rx="3" />
+                  <ellipse cx="336" cy="171" rx="12" ry="3" /><rect x="329" y="155" width="14" height="15" rx="3" />
+                  <ellipse cx="415" cy="171" rx="17" ry="4" />
+                </g>
+                <path d="M403 165q12-16 23 0" fill="#D99D54" />
+                <g fill="#BC7856" stroke="#734C3A" stroke-width="2">
+                  <rect x="92" y="195" width="49" height="30" rx="8" /><rect x="184" y="195" width="49" height="30" rx="8" />
+                  <rect x="306" y="195" width="49" height="30" rx="8" /><rect x="398" y="195" width="49" height="30" rx="8" />
+                </g>
+                <path d="M116 225v12m92-12v12m122-12v12m92-12v12" stroke="#43362D" stroke-width="5" />
+              </svg>
+              <h2 class="space-card__title">GoRelaxing</h2>
+              <p class="space-card__description">Для обідів, зустрічей і настільних ігор. Увечері — спілкування та події, без шуму в робочій зоні.</p>
+              <div class="space-card__footer">
+                <span>Стіл на 4 гостей</span>
+                <strong>25 € <small>/ 2 год</small></strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section benefits" aria-labelledby="benefits-title">
+        <div class="container">
+          <div class="section__heading">
+            <p class="eyebrow">01 — Переваги</p>
+            <h2 id="benefits-title">Більше, ніж коворкінг.</h2>
+          </div>
+          <div class="benefits__grid">
+            <article class="benefit">
+              <span class="benefit__symbol" aria-hidden="true">◎</span>
+              <h3>Тиша без компромісів</h3>
+              <p>Дві ізольовані зони: працюй або навчайся, поки інші відпочивають.</p>
+            </article>
+            <article class="benefit">
+              <span class="benefit__symbol" aria-hidden="true">＋</span>
+              <h3>Бронювання з користю</h3>
+              <p>Частину вартості столу можна витратити на їжу та безалкогольні напої.</p>
+            </article>
+            <article class="benefit">
+              <span class="benefit__symbol" aria-hidden="true">↗</span>
+              <h3>Люди та нові ідеї</h3>
+              <p>Зустрічай колег, навчайся разом, знайомся з IT-спільнотою та відпочивай.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="section__heading section__heading--wide">
+            <div>
+              <p class="eyebrow">02 — Тарифи</p>
+              <h2 id="pricing-title">Обирай свій формат.</h2>
+            </div>
+            <p>Прозорі планові ціни. У GoRelaxing ти бронюєш стіл, а не місце за столом.</p>
+          </div>
+          <div class="pricing__grid">
+            <article class="price-card">
+              <p class="price-card__label">GoWorking / індивідуально</p>
+              <h3>Робоче місце</h3>
+              <p class="price-card__amount">4 €<small> / год</small></p>
+              <p>Тиха зона, Wi-Fi, робоче місце з перегородкою.</p>
+            </article>
+            <article class="price-card price-card--featured">
+              <p class="price-card__label">GoRelaxing / вдень</p>
+              <h3>Стіл на 2 години</h3>
+              <p class="price-card__amount">25 €<small> / 2 год</small></p>
+              <p class="price-card__credit">20 € з цієї суми — на меню</p>
+              <p>До 4 гостей. Або 15 € за 1 годину, усі 15 € — на меню.</p>
+            </article>
+            <article class="price-card">
+              <p class="price-card__label">GoRelaxing / увечері</p>
+              <h3>Вечірній стіл</h3>
+              <p class="price-card__amount">40 €<small> / 2 год</small></p>
+              <p class="price-card__credit">40 € з цієї суми — на меню</p>
+              <p>До 4 гостей. Два столи для 8 гостей — 80 € за 2 години.</p>
+            </article>
+          </div>
+          <p class="pricing__note">Додаткова година понад 2 години — 20 € без кредиту на меню. Алкоголь продається лише у GoRelaxing, оплачується окремо. Тарифи попередні.</p>
+        </div>
+      </section>
+
+      <section class="section hours" id="hours" aria-labelledby="hours-title">
+        <div class="container hours__grid">
+          <div class="section__heading">
+            <p class="eyebrow">03 — Графік</p>
+            <h2 id="hours-title">Від ранку до вечора.</h2>
+            <p>GoWorking залишається тихим увесь день. GoRelaxing ввечері переходить у соціальний формат.</p>
+          </div>
+          <div class="hours__table-wrap">
+            <table class="hours__table">
+              <thead>
+                <tr>
+                  <th scope="col">Дні</th>
+                  <th scope="col">Години роботи</th>
+                  <th scope="col">Вечір з</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Пн–Чт</th>
+                  <td>09:00–23:00</td>
+                  <td>19:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Пт–Сб</th>
+                  <td>09:00–00:00</td>
+                  <td>18:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Неділя</th>
+                  <td>10:00–20:00</td>
+                  <td>16:00</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="hours__note">Запланований графік, який може змінитися перед відкриттям.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+      <div class="container footer__inner">
+        <div>
+          <a class="logo logo--footer" href="#home" aria-label="GoSpace — на початок сторінки">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span>Go<span class="logo__accent">Space</span></span>
+          </a>
+          <p>Work. Study. Relax. Connect.</p>
+        </div>
+        <div class="footer__contact">
+          <h2>Контакти</h2>
+          <p>Рига, Латвія</p>
+          <p>Адреса та контакти — після підтвердження відкриття.</p>
+        </div>
+        <div class="footer__legal">
+          <p>© GoSpace 2026</p>
+          <p>Навчальна концепція GoIT. Заклад ще не відкрито.</p>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title">
+      <h2 id="lead-dialog-title">Дякуємо за інтерес до GoSpace!</h2>
+      <p>Це демонстраційний лендінг майбутнього простору. Реальне бронювання та прийом заявок ще не доступні. Ваші контактні дані не збираються.</p>
+      <form method="dialog">
+        <button class="button button--secondary" type="submit">Закрити</button>
+      </form>
+    </dialog>
+    <script>
+      const leadButton = document.querySelector("#lead-button");
+      const leadDialog = document.querySelector("#lead-dialog");
+
+      if (leadButton && leadDialog) {
+        leadButton.addEventListener("click", () => {
+          leadDialog.showModal();
+        });
+      }
+    </script>
+  </body>
+</html>
