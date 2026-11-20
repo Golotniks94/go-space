@@ -1,42 +1,33 @@
 # GoSpace
 
-Навчальний лендінг GoIT: GoWorking (Quiet Zone) та GoRelaxing (Community Zone).
+A website concept for a coworking and community space in Riga, Latvia.
 
-## Structure
-
-```text
-go-space/
-├── index.html       # Semantic page markup and inline illustrations
-├── css/style.css    # Design tokens, components, responsive styles
-├── js/main.js       # Demo lead dialog
-├── scripts/build.mjs # Dependency-free single-file build
-└── dist/index.html  # GoIT / Netlify artifact
-```
+GoWorking is a quiet space for work and study. GoRelaxing is a space for food, social activities and relaxation.
 
 ## Development
 
-Open `index.html` locally in a browser. Edit the source HTML, CSS and JS separately.
-No npm dependencies or external assets are required.
+Open `index.html` in a browser or use Live Server in VS Code.
 
-## Build
+The website uses HTML, CSS and vanilla JavaScript. No installation, dependencies or build commands are required.
 
-Node.js 18+:
+## Project structure
 
-```sh
-node scripts/build.mjs
+```text
+go-space/
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+├── dist/
+│   └── index.html
+├── index.html
+└── README.md
 ```
 
-The build keeps the CSS and JavaScript readable and inlines them into `dist/index.html`.
-The two GTM placeholder comments remain immediately after the opening `head` and `body` tags.
+## Deployment
 
-## GoIT: deployment and analytics
+GitHub Pages serves the root directory of the `main` branch.
 
-- Before deployment, review the page locally.
-- Sign in to Netlify and upload only the `dist/` folder.
-- Create GA4 and GTM yourself. Insert GTM snippets into the agreed markers in the source `index.html`, then rebuild and redeploy `dist/`.
-- Keep the CTA text exactly `Залишити заявку` for the GTM Click Text condition.
-- Export the published GTM container and use the same deployed `dist/index.html` for homework submission.
+The standalone version in `dist/index.html` contains the same page with inline CSS and JavaScript. It can be deployed independently or opened directly in a browser. Keep it in sync when updating the source files.
 
-## Scope
-
-This is a concept, not an operating venue. Prices and opening hours are planned, not live offers. Interior scenes are conceptual inline SVG illustrations, not venue photographs. No analytics, data collection, live booking, invented address, phone number or email are included. The CTA opens a demo dialog so its click can be tested without collecting personal data.
+This project is a concept; booking is not available yet.
